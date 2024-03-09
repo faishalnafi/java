@@ -1,4 +1,4 @@
-//Program pertama GO Lang
+//Program pertama Java
 //09 Maret 2024
 
 class HelloWorld {
