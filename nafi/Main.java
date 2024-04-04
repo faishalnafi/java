@@ -1,4 +1,6 @@
 package nafi;
+//Mata Kuliah Pemrograman Berbasis Objek;
+//Dibuat 4 April 2024 FaishalNafi';
 
 class mesinKereta {
 
