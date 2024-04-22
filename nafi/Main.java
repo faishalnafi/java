@@ -1,83 +1,77 @@
-package nafi;
+// package nafi;
 //Mata Kuliah Pemrograman Berbasis Objek;
-//Dibuat 4 April 2024 FaishalNafi';
+//Dibuat 5 April 2024 FaishalNafi';
 
-class mesinKereta {
+class menuResto {
+    String nama;
+    double harga;
+    int jumlah;
 
-    String brand;
-    Integer ccMesin;
-    Integer tahun;
-    String seri;
-
-    public mesinKereta(String brand, Integer ccMesin, Integer tahun, String seri) {
-        this.brand = brand;
-        this.ccMesin = ccMesin;
-        this.tahun = tahun;
-        this.seri = seri;
-    }
-
-    public void info() {
-        System.out.println("Brand Mesin    : "+this.brand);
-        System.out.println("Jenis Mesin    : "+this.ccMesin);
-        System.out.println("Tahun Pembuatan: "+this.tahun);
-        System.out.println("Seri Mesin     : "+this.seri);
+    public menuResto(String nama, double harga, int jumlah) {
+        this.nama = nama;
+        this.harga = harga;
+        this.jumlah = jumlah;
     }
 }
 
-class disel extends mesinKereta {
-
-    Integer roda;
+class menuMinum extends menuResto{
     String tipe;
 
-    public disel(Integer roda, String brand, Integer ccMesin, Integer tahun, String seri) {
-        super(brand,ccMesin,tahun,seri);
-        this.roda = roda;
-        this.tipe = "disel";
+    public menuMinum(String nama, double harga, int jumlah) {
+        super(nama, harga, jumlah);
+        this.tipe = " Gelas";
     }
 
+    // @Override
     public void info() {
-        System.out.println("Brand Mesin    : "+this.brand);
-        System.out.println("Jenis Mesin    : "+this.ccMesin);
-        System.out.println("Tahun Pembuatan: "+this.tahun);
-        System.out.println("Seri Mesin     : "+this.seri);
-        System.out.println("Tipe Mesin     : "+this.tipe);
-        System.out.println("Jumlah Roda    : "+this.roda);
+        System.err.println("Nama Minum        : "+nama);
+        System.err.println("Harga Minum       : "+harga);
+        System.err.println("Jumlah Minum      : "+jumlah+tipe);
+        System.err.println("subTotal Harga    : "+subtotal()+"\n");
+    }
+
+    public double subtotal() {
+        return harga*jumlah;
+    }
+
+    public void subharga() {
+        System.out.println(subtotal());
     }
 }
 
-class uap extends mesinKereta {
-
-    Integer roda;
+class menuMakan extends menuResto{
     String tipe;
 
-    public uap(Integer roda, String brand, Integer ccMesin, Integer tahun, String seri) {
-        super(brand,ccMesin,tahun,seri);
-        this.roda = roda;
-        this.tipe = "uap";
+    public menuMakan(String nama, double harga, int jumlah) {
+        super(nama, harga, jumlah);
+        this.tipe = " Porsi";
     }
 
+    // @Override
     public void info() {
-        System.out.println("Brand Mesin    : "+this.brand);
-        System.out.println("Jenis Mesin    : "+this.ccMesin);
-        System.out.println("Tahun Pembuatan: "+this.tahun);
-        System.out.println("Seri Mesin     : "+this.seri);
-        System.out.println("Tipe Mesin     : "+this.tipe);
-        System.out.println("Jumlah Roda    : "+this.roda);
+        System.err.println("Nama Makanan      : "+nama);
+        System.err.println("Harga Makanan     : "+harga);
+        System.err.println("Jumlah Makanan    : "+jumlah+tipe);
+        System.err.println("subTotal Harga    : "+subtotal()+"\n");
+    }
+
+    public double subtotal() {
+        return harga*jumlah;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        mesinKereta kereta206 = new disel(24, "general electric", 206, 2013, "CC");
-        System.out.println("kereta206");
-        kereta206.info();
-        System.out.println("====================");
-        System.out.println("                    ");
+        menuMakan SupAyam = new menuMakan("Sup Ayam", 15000, 3);
+        SupAyam.info();
 
-        mesinKereta kereta205 = new uap(18, "maryland", 205, 1977, "BB");
-        System.out.println("kereta205");
-        kereta205.info();
-        System.out.println("====================");
-        System.out.println("                    ");
+        menuMinum esTeh = new menuMinum("Es Teh", 3000, 5);
+        esTeh.info();
+
+        menuMakan Bakso = new menuMakan("Bakso", 8000, 4);
+        Bakso.info();
+
+        menuMinum esJeruk = new menuMinum("Es Jeruk", 5000, 2);
+        esJeruk.info();
     }
 }
