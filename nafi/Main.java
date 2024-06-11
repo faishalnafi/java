@@ -33,10 +33,6 @@ class menuMinum extends menuResto{
     public double subtotal() {
         return harga*jumlah;
     }
-
-    public void subharga() {
-        System.out.println(subtotal());
-    }
 }
 
 class menuMakan extends menuResto{

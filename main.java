@@ -1,8 +1,11 @@
-//Program pertama Java
-//09 Maret 2024
+package Bebas;
 
-class main {
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World!!");
+        Mobil mobil = new Mobil("Toyota", "Supra", "Merah");
+        mobil.GetInfoKendaraan();
+
+        Motor motor = new Motor("Honda", "Nmax", "Putih");
+        motor.GetInfoKendaraan();
     }
 }
