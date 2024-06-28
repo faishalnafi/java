@@ -1,0 +1,77 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "GUI.test",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "pesanMakan",
+            "request": "launch",
+            "mainClass": "pesanMakan",
+            "projectName": "java_73386a53"
+        },
+        {
+            "type": "java",
+            "name": "SimpleLoginApp",
+            "request": "launch",
+            "mainClass": "GUI.SimpleLoginApp",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "pesanMakan",
+            "request": "launch",
+            "mainClass": "pesanMakan",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "Master",
+            "request": "launch",
+            "mainClass": "nafi.Master",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "string",
+            "request": "launch",
+            "mainClass": "string",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "pewarisan",
+            "request": "launch",
+            "mainClass": "pewarisan",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "pesanMakan",
+            "request": "launch",
+            "mainClass": "nafi.pesanMakan",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}
