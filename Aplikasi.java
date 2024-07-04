@@ -1,3 +1,6 @@
+//Mata Kuliah Pemrograman Berbasis Objek;
+//Dibuat 8 Juni 2024 FaishalNafi';
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -52,7 +55,7 @@ class LoginWindow extends JFrame implements ActionListener {
             new KalkulatorLuasWindow();
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Username atau Password salah.");
+            JOptionPane.showMessageDialog(this, "Username atau Password salah Sayang.");
         }
     }
 }

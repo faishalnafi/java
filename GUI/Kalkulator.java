@@ -1,162 +1,88 @@
-// TA Mata Kuliah Pemrograman Berbasis Objek;
-//Dibuat 20 2024 FaishalNafi';
+//Mata Kuliah Pemrograman Berbasis Objek;
+//Dibuat 26 Juni 2024 FaishalNafi';
 
-// LIBRARY
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-// Kelas Utama
-public class Kalkulator extends JFrame implements ActionListener {
-
-    // Kelas Induk
-    static class KalkulatorDasar extends JFrame {
-        //DEKLARASI VARIABEL
-        protected JTextField bidangInput;
-        protected JButton[] tombolAngka = new JButton[10];
-        protected JButton[] tombolFungsi = new JButton[8];
-        protected JButton tombolTambah, tombolKurang, tombolKali, tombolBagi;
-        protected JButton tombolDesimal, tombolSamaDengan, tombolHapus, tombolBersih;
-        protected JPanel panel;
-        protected Font huruf = new Font("Arial", Font.PLAIN, 18);
-
-        //KONSTRUKTOR KALKULATOR
-        public KalkulatorDasar() {
-            setTitle("Kalkulator By Nafi'");
-            setSize(420, 550);
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setLayout(null);
-
-            bidangInput = new JTextField();
-            bidangInput.setBounds(50, 25, 300, 50);
-            bidangInput.setFont(huruf);
-            bidangInput.setEditable(false);
-            add(bidangInput);
-
-            //INISIALISASI TOMBOL
-            tombolTambah = new JButton("+");
-            tombolKurang = new JButton("-");
-            tombolKali = new JButton("*");
-            tombolBagi = new JButton("/");
-            tombolDesimal = new JButton(".");
-            tombolSamaDengan = new JButton("=");
-            tombolHapus = new JButton("Hapus");
-            tombolBersih = new JButton("Bersih");
-
-            tombolFungsi[0] = tombolTambah;
-            tombolFungsi[1] = tombolKurang;
-            tombolFungsi[2] = tombolKali;
-            tombolFungsi[3] = tombolBagi;
-            tombolFungsi[4] = tombolDesimal;
-            tombolFungsi[5] = tombolSamaDengan;
-            tombolFungsi[6] = tombolHapus;
-            tombolFungsi[7] = tombolBersih;
-
-            for (int i = 0; i < 8; i++) {
-                tombolFungsi[i].setFont(huruf);
-                tombolFungsi[i].setFocusable(false);
-            }
-
-            for (int i = 0; i < 10; i++) {
-                tombolAngka[i] = new JButton(String.valueOf(i));
-                tombolAngka[i].setFont(huruf);
-                tombolAngka[i].setFocusable(false);
-            }
-
-            tombolHapus.setBounds(50, 430, 145, 50);
-            tombolBersih.setBounds(205, 430, 145, 50);
-            add(tombolHapus);
-            add(tombolBersih);
-
-            // PANEL TOMBOL
-            panel = new JPanel();
-            panel.setBounds(50, 100, 300, 300);
-            panel.setLayout(new GridLayout(4, 4, 10, 10));
-
-            panel.add(tombolAngka[1]);
-            panel.add(tombolAngka[2]);
-            panel.add(tombolAngka[3]);
-            panel.add(tombolTambah);
-            panel.add(tombolAngka[4]);
-            panel.add(tombolAngka[5]);
-            panel.add(tombolAngka[6]);
-            panel.add(tombolKurang);
-            panel.add(tombolAngka[7]);
-            panel.add(tombolAngka[8]);
-            panel.add(tombolAngka[9]);
-            panel.add(tombolKali);
-            panel.add(tombolDesimal);
-            panel.add(tombolAngka[0]);
-            panel.add(tombolSamaDengan);
-            panel.add(tombolBagi);
-
-            add(panel);
-
-            setVisible(true);
-        }
-    }
-
-    // Kelas Turunan
+// Kelas Utama yang menjalankan program
+public class Kalkulator extends KalkulatorDasar {
+    // Variabel untuk operasi kalkulator
     private double angka1 = 0, angka2 = 0, hasil = 0;
     private char operator;
 
+    // Konstruktor utama
     public Kalkulator() {
         super();
-        KalkulatorDasar kalkulatorDasar = new KalkulatorDasar();
-        kalkulatorDasar.setTitle("Kalkulator By Nafi'");
-        kalkulatorDasar.setSize(420, 550);
-        kalkulatorDasar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        kalkulatorDasar.setLayout(null);
+        setTitle("Kalkulator Dasar");
+        setSize(420, 550);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
 
+        // Menambahkan action listener ke semua tombol fungsi dan angka
         for (int i = 0; i < 8; i++) {
-            kalkulatorDasar.tombolFungsi[i].addActionListener(this);
+            tombolFungsi[i].addActionListener(this);
         }
 
         for (int i = 0; i < 10; i++) {
-            kalkulatorDasar.tombolAngka[i].addActionListener(this);
+            tombolAngka[i].addActionListener(this);
         }
+
+        setVisible(true);
     }
 
-    // KELAS UTAMA RUNNING
+    // Kelas Utama yang menjalankan program
     public static void main(String[] args) {
         new Kalkulator();
     }
 
-    //PENANGANAN EVENT
+    // Penanganan event untuk kalkulator
     @Override
     public void actionPerformed(ActionEvent e) {
-        KalkulatorDasar kalkulatorDasar = new KalkulatorDasar();
+        // Menangani input angka
         for (int i = 0; i < 10; i++) {
-            if (e.getSource() == kalkulatorDasar.tombolAngka[i]) {
-                kalkulatorDasar.bidangInput.setText(kalkulatorDasar.bidangInput.getText().concat(String.valueOf(i)));
+            if (e.getSource() == tombolAngka[i]) {
+                bidangInput.setText(bidangInput.getText().concat(String.valueOf(i)));
             }
         }
-        if (e.getSource() == kalkulatorDasar.tombolDesimal) {
-            kalkulatorDasar.bidangInput.setText(kalkulatorDasar.bidangInput.getText().concat("."));
+
+        // Menangani input desimal
+        if (e.getSource() == tombolDesimal) {
+            bidangInput.setText(bidangInput.getText().concat("."));
         }
-        if (e.getSource() == kalkulatorDasar.tombolTambah) {
-            angka1 = Double.parseDouble(kalkulatorDasar.bidangInput.getText());
+
+        // Menangani operasi tambah
+        if (e.getSource() == tombolTambah) {
+            angka1 = Double.parseDouble(bidangInput.getText());
             operator = '+';
-            kalkulatorDasar.bidangInput.setText("");
+            bidangInput.setText("");
         }
-        if (e.getSource() == kalkulatorDasar.tombolKurang) {
-            angka1 = Double.parseDouble(kalkulatorDasar.bidangInput.getText());
+
+        // Menangani operasi kurang
+        if (e.getSource() == tombolKurang) {
+            angka1 = Double.parseDouble(bidangInput.getText());
             operator = '-';
-            kalkulatorDasar.bidangInput.setText("");
+            bidangInput.setText("");
         }
-        if (e.getSource() == kalkulatorDasar.tombolKali) {
-            angka1 = Double.parseDouble(kalkulatorDasar.bidangInput.getText());
+
+        // Menangani operasi kali
+        if (e.getSource() == tombolKali) {
+            angka1 = Double.parseDouble(bidangInput.getText());
             operator = '*';
-            kalkulatorDasar.bidangInput.setText("");
+            bidangInput.setText("");
         }
-        if (e.getSource() == kalkulatorDasar.tombolBagi) {
-            angka1 = Double.parseDouble(kalkulatorDasar.bidangInput.getText());
+
+        // Menangani operasi bagi
+        if (e.getSource() == tombolBagi) {
+            angka1 = Double.parseDouble(bidangInput.getText());
             operator = '/';
-            kalkulatorDasar.bidangInput.setText("");
+            bidangInput.setText("");
         }
-        if (e.getSource() == kalkulatorDasar.tombolSamaDengan) {
-            angka2 = Double.parseDouble(kalkulatorDasar.bidangInput.getText());
+
+        // Menangani operasi sama dengan
+        if (e.getSource() == tombolSamaDengan) {
+            angka2 = Double.parseDouble(bidangInput.getText());
 
             switch (operator) {
                 case '+':
@@ -172,18 +98,114 @@ public class Kalkulator extends JFrame implements ActionListener {
                     hasil = angka1 / angka2;
                     break;
             }
-            kalkulatorDasar.bidangInput.setText(String.valueOf(hasil));
+            bidangInput.setText(String.valueOf(hasil));
             angka1 = hasil;
         }
-        if (e.getSource() == kalkulatorDasar.tombolBersih) {
-            kalkulatorDasar.bidangInput.setText("");
+
+        // Menangani operasi bersih
+        if (e.getSource() == tombolBersih) {
+            bidangInput.setText("");
         }
-        if (e.getSource() == kalkulatorDasar.tombolHapus) {
-            String string = kalkulatorDasar.bidangInput.getText();
-            kalkulatorDasar.bidangInput.setText("");
+
+        // Menangani operasi hapus
+        if (e.getSource() == tombolHapus) {
+            String string = bidangInput.getText();
+            bidangInput.setText("");
             for (int i = 0; i < string.length() - 1; i++) {
-                kalkulatorDasar.bidangInput.setText(kalkulatorDasar.bidangInput.getText() + string.charAt(i));
+                bidangInput.setText(bidangInput.getText() + string.charAt(i));
             }
         }
+    }
+}
+
+// Kelas Induk yang mengatur antarmuka dasar kalkulator
+class KalkulatorDasar extends JFrame implements ActionListener {
+    // Deklarasi variabel
+    protected JTextField bidangInput;
+    protected JButton[] tombolAngka = new JButton[10];
+    protected JButton[] tombolFungsi = new JButton[8];
+    protected JButton tombolTambah, tombolKurang, tombolKali, tombolBagi;
+    protected JButton tombolDesimal, tombolSamaDengan, tombolHapus, tombolBersih;
+    protected JPanel panel;
+    protected Font huruf = new Font("Arial", Font.PLAIN, 18);
+
+    // Konstruktor untuk kelas induk
+    public KalkulatorDasar() {
+        setTitle("Kalkulator Dasar");
+        setSize(420, 550);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+
+        bidangInput = new JTextField();
+        bidangInput.setBounds(50, 25, 300, 50);
+        bidangInput.setFont(huruf);
+        bidangInput.setEditable(false);
+        add(bidangInput);
+
+        // Inisialisasi tombol
+        tombolTambah = new JButton("+");
+        tombolKurang = new JButton("-");
+        tombolKali = new JButton("*");
+        tombolBagi = new JButton("/");
+        tombolDesimal = new JButton(".");
+        tombolSamaDengan = new JButton("=");
+        tombolHapus = new JButton("Hapus");
+        tombolBersih = new JButton("Bersih");
+
+        tombolFungsi[0] = tombolTambah;
+        tombolFungsi[1] = tombolKurang;
+        tombolFungsi[2] = tombolKali;
+        tombolFungsi[3] = tombolBagi;
+        tombolFungsi[4] = tombolDesimal;
+        tombolFungsi[5] = tombolSamaDengan;
+        tombolFungsi[6] = tombolHapus;
+        tombolFungsi[7] = tombolBersih;
+
+        for (int i = 0; i < 8; i++) {
+            tombolFungsi[i].setFont(huruf);
+            tombolFungsi[i].setFocusable(false);
+        }
+
+        for (int i = 0; i < 10; i++) {
+            tombolAngka[i] = new JButton(String.valueOf(i));
+            tombolAngka[i].setFont(huruf);
+            tombolAngka[i].setFocusable(false);
+        }
+
+        tombolHapus.setBounds(50, 430, 145, 50);
+        tombolBersih.setBounds(205, 430, 145, 50);
+        add(tombolHapus);
+        add(tombolBersih);
+
+        // Panel untuk tombol
+        panel = new JPanel();
+        panel.setBounds(50, 100, 300, 300);
+        panel.setLayout(new GridLayout(4, 4, 10, 10));
+
+        panel.add(tombolAngka[1]);
+        panel.add(tombolAngka[2]);
+        panel.add(tombolAngka[3]);
+        panel.add(tombolTambah);
+        panel.add(tombolAngka[4]);
+        panel.add(tombolAngka[5]);
+        panel.add(tombolAngka[6]);
+        panel.add(tombolKurang);
+        panel.add(tombolAngka[7]);
+        panel.add(tombolAngka[8]);
+        panel.add(tombolAngka[9]);
+        panel.add(tombolKali);
+        panel.add(tombolDesimal);
+        panel.add(tombolAngka[0]);
+        panel.add(tombolSamaDengan);
+        panel.add(tombolBagi);
+
+        add(panel);
+
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Implementasi action listener untuk kelas dasar bisa ditambahkan di sini
     }
 }
