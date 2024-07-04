@@ -1,3 +1,7 @@
+// TA Mata Kuliah Pemrograman Berbasis Objek;
+//Dibuat 20 2024 FaishalNafi';
+
+// LIBRARY
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +12,7 @@ public class Kalkulator extends JFrame implements ActionListener {
 
     // Kelas Induk
     static class KalkulatorDasar extends JFrame {
+        //DEKLARASI VARIABEL
         protected JTextField bidangInput;
         protected JButton[] tombolAngka = new JButton[10];
         protected JButton[] tombolFungsi = new JButton[8];
@@ -16,6 +21,7 @@ public class Kalkulator extends JFrame implements ActionListener {
         protected JPanel panel;
         protected Font huruf = new Font("Arial", Font.PLAIN, 18);
 
+        //KONSTRUKTOR KALKULATOR
         public KalkulatorDasar() {
             setTitle("Kalkulator By Nafi'");
             setSize(420, 550);
@@ -28,6 +34,7 @@ public class Kalkulator extends JFrame implements ActionListener {
             bidangInput.setEditable(false);
             add(bidangInput);
 
+            //INISIALISASI TOMBOL
             tombolTambah = new JButton("+");
             tombolKurang = new JButton("-");
             tombolKali = new JButton("*");
@@ -62,6 +69,7 @@ public class Kalkulator extends JFrame implements ActionListener {
             add(tombolHapus);
             add(tombolBersih);
 
+            // PANEL TOMBOL
             panel = new JPanel();
             panel.setBounds(50, 100, 300, 300);
             panel.setLayout(new GridLayout(4, 4, 10, 10));
@@ -110,10 +118,12 @@ public class Kalkulator extends JFrame implements ActionListener {
         }
     }
 
+    // KELAS UTAMA RUNNING
     public static void main(String[] args) {
         new Kalkulator();
     }
 
+    //PENANGANAN EVENT
     @Override
     public void actionPerformed(ActionEvent e) {
         KalkulatorDasar kalkulatorDasar = new KalkulatorDasar();
