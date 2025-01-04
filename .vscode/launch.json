@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "OOP",
+            "request": "launch",
+            "mainClass": "OOP",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
             "name": "Master",
             "request": "launch",
             "mainClass": "Master",
