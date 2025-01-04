@@ -1,11 +1,11 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Stack;
+import javax.swing.*;
 
 // Kelas utama yang mengatur UI dan logika kalkulator
-public class KalkulatorSederhana {
+public class Kalkulator {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(KalkulatorFrame::new);

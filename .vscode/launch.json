@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Master",
+            "request": "launch",
+            "mainClass": "Master",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "kalkulator",
+            "request": "launch",
+            "mainClass": "kalkulator",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "Kalkulator",
+            "request": "launch",
+            "mainClass": "Kalkulator",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "KalkulatorSederhana",
+            "request": "launch",
+            "mainClass": "KalkulatorSederhana",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
             "name": "test",
             "request": "launch",
             "mainClass": "GUI.test",
