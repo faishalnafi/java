@@ -16,7 +16,7 @@
         }
     }
 
-    public class pewarisan {
+    public class Pewarisan_OOP {
         public static void main (String[] args) {
             babyDog apah = new babyDog();
             apah.weep();

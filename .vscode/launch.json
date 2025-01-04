@@ -6,6 +6,69 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FormExample_GUI",
+            "request": "launch",
+            "mainClass": "TaskKuliah.FormExample_GUI",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "TwoFrameExample_GUI",
+            "request": "launch",
+            "mainClass": "TaskKuliah.TwoFrameExample_GUI",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "TwoFrameExample",
+            "request": "launch",
+            "mainClass": "TaskKuliah.TwoFrameExample",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "Pewarisan_OOP",
+            "request": "launch",
+            "mainClass": "TaskKuliah.Pewarisan_OOP",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "Pewarisan",
+            "request": "launch",
+            "mainClass": "TaskKuliah.Pewarisan",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "pewarisan",
+            "request": "launch",
+            "mainClass": "TaskKuliah.pewarisan",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "SimpleLoginApp",
+            "request": "launch",
+            "mainClass": "SimpleLoginApp",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "FormExample",
+            "request": "launch",
+            "mainClass": "FormExample",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "Aplikasi",
+            "request": "launch",
+            "mainClass": "Aplikasi",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
             "name": "OOP",
             "request": "launch",
             "mainClass": "OOP",
