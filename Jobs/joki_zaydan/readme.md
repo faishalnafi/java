@@ -1,25 +1,59 @@
-# Calculator Application
+# Kalkulator Java dengan UI menggunakan Swing
 
-This project is a Java-based calculator application built using Java Swing for the user interface. The program demonstrates object-oriented programming principles, including class decomposition and interaction.
+Program kalkulator ini dibuat menggunakan bahasa pemrograman Java dengan menggunakan library Swing untuk membangun User Interface (UI). Kalkulator ini memiliki fungsi dasar seperti penjumlahan, pengurangan, perkalian, pembagian, dan operasi matematika lainnya seperti modulus. Kalkulator ini juga memiliki fitur untuk menyimpan riwayat perhitungan.
 
-## **Project Structure**
+## Struktur Program dan Penjelasan Fungsi Setiap Kelas
 
-### **Folder Name:** `joki_zaydan`
+### 1. **CalculatorApp**
+Kelas ini adalah titik masuk utama (entry point) untuk aplikasi kalkulator. Fungsi `main` di dalam kelas ini akan menjalankan aplikasi dengan memanggil `SwingUtilities.invokeLater` untuk memulai UI kalkulator di thread yang tepat.
 
-The project contains the following Java files:
+### 2. **CalculatorUI**
+Kelas ini bertanggung jawab untuk membuat dan mengelola tampilan antarmuka pengguna (UI) kalkulator. Beberapa komponen penting dari kelas ini adalah:
+- `JTextField inputField`: Menampilkan input atau hasil perhitungan.
+- `JTextArea historyArea`: Menampilkan riwayat perhitungan.
+- `JButton button`: Tombol untuk angka dan operasi matematika.
+- `JPanel panel`: Panel utama yang menampung input, tombol, dan riwayat perhitungan.
 
-1. `main.java` - Entry point of the application.
-2. `CalculatorUI.java` - Handles the graphical user interface (UI).
-3. `CalculatorInput.java` - Processes and manages user input.
-4. `CalculatorLogic.java` - Coordinates input handling and result computation.
-5. `CalculatorOperations.java` - Performs mathematical operations.
-6. `ExpressionParser.java` - Parses and evaluates mathematical expressions.
+Fungsi utama dalam kelas ini adalah `initUI()`, yang menginisialisasi semua komponen UI, menambahkan tombol kalkulator ke dalam panel, dan menetapkan aksi untuk setiap tombol melalui `ButtonClickListener`.
 
----
+### 3. **CalculatorInput**
+Kelas ini menangani pengelolaan input dari pengguna. Fungsi-fungsi penting dalam kelas ini adalah:
+- `append(String value)`: Menambahkan karakter atau angka ke input.
+- `deleteLast()`: Menghapus karakter terakhir dari input.
+- `clear()`: Menghapus seluruh input.
+- `getCurrentInput()`: Mengambil input saat ini yang sudah dimasukkan oleh pengguna.
 
-## **How to Use**
+### 4. **CalculatorLogic**
+Kelas ini berfungsi untuk menangani logika perhitungan. Kelas ini mengandalkan kelas `CalculatorOperations` untuk menghitung hasil dari ekspresi yang dimasukkan pengguna. Metode utama dalam kelas ini adalah `evaluateExpression(String expression)`, yang menerima ekspresi sebagai string dan mengembalikan hasil perhitungan dalam bentuk string.
 
-### **1. Compile the Project**
-Ensure you are in the parent directory of the `joki_zaydan` folder. Run the following command:
-```bash
-javac joki_zaydan/*.java
+### 5. **CalculatorOperations**
+Kelas ini bertanggung jawab untuk melakukan evaluasi ekspresi matematika. Kelas ini menggunakan `ExpressionParser` untuk memparsing ekspresi dan menghitung hasilnya berdasarkan urutan operator dan prioritas.
+
+### 6. **ExpressionParser**
+Kelas ini digunakan untuk memparsing ekspresi matematika dan menilai hasil berdasarkan prioritas operator (seperti *, /, %, +, -). Ekspresi dipecah menjadi token dan dihitung dengan menggunakan dua stack: satu untuk angka dan satu untuk operator. Metode `evaluateExpressionWithPriority` menangani logika perhitungan dengan memperhatikan prioritas operator.
+
+### Relasi Antar Kelas
+- **CalculatorApp** menginisiasi dan menjalankan **CalculatorUI**.
+- **CalculatorUI** berinteraksi dengan **CalculatorInput** untuk mengelola input pengguna.
+- **CalculatorLogic** berfungsi untuk menilai ekspresi yang dimasukkan oleh pengguna menggunakan **CalculatorOperations**.
+- **CalculatorOperations** menggunakan **ExpressionParser** untuk mengevaluasi ekspresi matematika dengan mempertimbangkan prioritas operator.
+
+## Cara Menggunakan Program
+1. Jalankan aplikasi dengan menjalankan kelas `CalculatorApp` di IDE atau command line.
+2. Tampilan kalkulator akan muncul dengan panel input dan tombol-tombol operasi matematika.
+3. Gunakan tombol angka dan operator untuk memasukkan ekspresi matematika.
+4. Tekan tombol "=" untuk menghitung hasil ekspresi yang dimasukkan.
+5. Riwayat perhitungan akan ditampilkan di bagian bawah layar, dan hasil akan ditampilkan di input field.
+6. Gunakan tombol "C" untuk membersihkan input dan riwayat, atau "DEL" untuk menghapus karakter terakhir.
+
+## Contoh Penggunaan
+1. **Masukkan**: `2 + 3 * 4`
+2. **Hasil**: `2 + 3 * 4 = 14`
+
+## Fitur Tambahan
+- Riwayat perhitungan disimpan dan ditampilkan setelah setiap operasi.
+- Menangani berbagai operasi matematika dasar: penjumlahan, pengurangan, perkalian, pembagian, dan modulus.
+
+## Persyaratan
+- Java 8 atau versi lebih tinggi.
+- IDE atau compiler Java untuk menjalankan program.
