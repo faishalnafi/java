@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Jobs.joki_zaydan.Main",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "CalculatorApp",
+            "request": "launch",
+            "mainClass": "CalculatorApp",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
+            "name": "Kalkulator",
+            "request": "launch",
+            "mainClass": "TaskKuliah.Kalkulator",
+            "projectName": "java_bd3a04aa"
+        },
+        {
+            "type": "java",
             "name": "FormExample_GUI",
             "request": "launch",
             "mainClass": "TaskKuliah.FormExample_GUI",
