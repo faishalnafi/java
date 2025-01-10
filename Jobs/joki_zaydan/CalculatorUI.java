@@ -28,14 +28,6 @@ public class CalculatorUI {
         JPanel panel = new JPanel(new BorderLayout());
         JPanel buttonPanel = new JPanel(new GridLayout(5, 4, 5, 5));
 
-        String[] buttons = {
-                "7", "8", "9", "/",
-                "4", "5", "6", "*",
-                "1", "2", "3", "-",
-                "0", ".", "=", "+",
-                "C", "DEL", "%"
-        };
-
         for (String text : buttons) {
             JButton button = new JButton(text);
             button.addActionListener(new ButtonClickListener());
