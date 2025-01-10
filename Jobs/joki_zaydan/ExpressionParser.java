@@ -28,7 +28,6 @@ public class ExpressionParser {
             compute(numbers, operators.pop());
         }
 
-        return numbers.pop();
     }
 
     private boolean hasHigherPrecedence(String op1, String op2) {
